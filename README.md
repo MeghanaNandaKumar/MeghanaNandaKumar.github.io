@@ -1,2 +1,0 @@
-# MeghanaNandaKumar.github.io
-portfolio
