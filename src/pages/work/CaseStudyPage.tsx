@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import { PasswordGate } from '@/components/PasswordGate'
 import { caseStudies } from '@/data/caseStudies'
 
 export function CaseStudyPage() {
@@ -19,6 +20,14 @@ export function CaseStudyPage() {
     )
   }
 
+  return (
+    <PasswordGate>
+      <CaseStudyContent study={study} />
+    </PasswordGate>
+  )
+}
+
+function CaseStudyContent({ study }: { study: (typeof caseStudies)[number] }) {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
       <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
