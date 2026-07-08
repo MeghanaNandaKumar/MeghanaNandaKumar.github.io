@@ -47,4 +47,5 @@ export interface EarlyProject {
   title: string
   blurb: string
   link: string
+  internal?: boolean
 }

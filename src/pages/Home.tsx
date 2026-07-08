@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { CaseStudyCard } from '@/components/CaseStudyCard'
 import { Badge } from '@/components/ui/badge'
 import { caseStudies } from '@/data/caseStudies'
@@ -58,23 +59,36 @@ export function Home() {
       <section className="pb-28">
         <h2 className="mb-2 text-xl font-semibold tracking-tight">Earlier work</h2>
         <p className="mb-8 max-w-2xl text-sm text-muted-foreground">
-          Academic and early-career projects, hosted on my original portfolio.
+          Academic and early-career projects.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
-          {earlierWork.map((project) => (
-            <a
-              key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="group rounded-xl border border-border p-5 transition-colors hover:border-primary/40"
-            >
-              <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
-                {project.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">{project.blurb}</p>
-            </a>
-          ))}
+          {earlierWork.map((project) =>
+            project.internal ? (
+              <Link
+                key={project.title}
+                to={project.link}
+                className="group rounded-xl border border-border p-5 transition-colors hover:border-primary/40"
+              >
+                <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{project.blurb}</p>
+              </Link>
+            ) : (
+              <a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group rounded-xl border border-border p-5 transition-colors hover:border-primary/40"
+              >
+                <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
+                  {project.title} ↗
+                </h3>
+                <p className="text-sm text-muted-foreground">{project.blurb}</p>
+              </a>
+            ),
+          )}
         </div>
       </section>
     </div>

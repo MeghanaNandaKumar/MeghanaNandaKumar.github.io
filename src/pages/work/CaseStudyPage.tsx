@@ -4,10 +4,14 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { PasswordGate } from '@/components/PasswordGate'
 import { caseStudies } from '@/data/caseStudies'
+import { earlierCaseStudies } from '@/data/earlierCaseStudies'
+import type { CaseStudy } from '@/data/types'
 
 export function CaseStudyPage() {
   const { slug } = useParams()
-  const study = caseStudies.find((s) => s.slug === slug)
+  const flagshipStudy = caseStudies.find((s) => s.slug === slug)
+  const earlierStudy = earlierCaseStudies.find((s) => s.slug === slug)
+  const study = flagshipStudy ?? earlierStudy
 
   if (!study) {
     return (
@@ -20,14 +24,18 @@ export function CaseStudyPage() {
     )
   }
 
-  return (
-    <PasswordGate>
-      <CaseStudyContent study={study} />
-    </PasswordGate>
-  )
+  if (flagshipStudy) {
+    return (
+      <PasswordGate>
+        <CaseStudyContent study={study} />
+      </PasswordGate>
+    )
+  }
+
+  return <CaseStudyContent study={study} />
 }
 
-function CaseStudyContent({ study }: { study: (typeof caseStudies)[number] }) {
+function CaseStudyContent({ study }: { study: CaseStudy }) {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
       <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
