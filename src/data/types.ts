@@ -48,4 +48,5 @@ export interface EarlyProject {
   blurb: string
   link: string
   internal?: boolean
+  wixLink: string
 }

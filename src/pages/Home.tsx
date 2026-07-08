@@ -20,6 +20,12 @@ export function Home() {
         <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
           {site.bioShort}
         </p>
+        <Link
+          to="/panes"
+          className="inline-flex w-fit items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+        >
+          Try the pane-browsing view →
+        </Link>
       </section>
 
       {/* Flagship case studies */}
@@ -62,33 +68,35 @@ export function Home() {
           Academic and early-career projects.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
-          {earlierWork.map((project) =>
-            project.internal ? (
-              <Link
-                key={project.title}
-                to={project.link}
-                className="group rounded-xl border border-border p-5 transition-colors hover:border-primary/40"
-              >
-                <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{project.blurb}</p>
-              </Link>
-            ) : (
-              <a
-                key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-xl border border-border p-5 transition-colors hover:border-primary/40"
-              >
-                <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
-                  {project.title} ↗
-                </h3>
-                <p className="text-sm text-muted-foreground">{project.blurb}</p>
-              </a>
-            ),
-          )}
+          {earlierWork.map((project) => (
+            <div key={project.title} className="rounded-xl border border-border p-5">
+              {project.internal ? (
+                <Link to={project.link} className="group">
+                  <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{project.blurb}</p>
+                </Link>
+              ) : (
+                <a href={project.link} target="_blank" rel="noreferrer" className="group">
+                  <h3 className="mb-1 font-medium tracking-tight group-hover:text-primary">
+                    {project.title} ↗
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{project.blurb}</p>
+                </a>
+              )}
+              {project.internal && (
+                <a
+                  href={project.wixLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-block text-xs font-medium text-muted-foreground hover:text-primary"
+                >
+                  View on Wix ↗
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </div>
