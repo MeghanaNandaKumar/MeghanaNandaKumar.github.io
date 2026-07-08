@@ -1,7 +1,7 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
 
 const STORAGE_KEY = 'case-study-unlocked'
-const PASSWORD = '8787'
+const PASSWORD = import.meta.env.VITE_CASE_STUDY_PASSWORD
 
 function isUnlocked() {
   return localStorage.getItem(STORAGE_KEY) === 'true'
