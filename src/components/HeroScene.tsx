@@ -153,9 +153,9 @@ export function HeroScene() {
       </p>
 
       {/* Clouds */}
-      <Cloud className="absolute left-[7%] top-[14%] w-16 text-muted-foreground/60 sm:w-20" />
-      <Cloud className="absolute left-[44%] top-[8%] w-20 text-muted-foreground/45 sm:w-24" />
-      <Cloud className="absolute right-[9%] top-[22%] hidden w-14 text-muted-foreground/55 sm:block" />
+      <Cloud className="absolute left-[7%] top-[14%] w-16 animate-[cloud-drift_18s_ease-in-out_infinite] text-muted-foreground/60 sm:w-20" />
+      <Cloud className="absolute left-[44%] top-[8%] w-20 animate-[cloud-drift_24s_ease-in-out_infinite] text-muted-foreground/45 sm:w-24" />
+      <Cloud className="absolute right-[9%] top-[22%] hidden w-14 animate-[cloud-drift_21s_ease-in-out_infinite] text-muted-foreground/55 sm:block" />
 
       {/* Skyline, behind everything on the ground line */}
       <Skyline className="absolute bottom-12 left-0 h-20 w-full sm:h-24" />
@@ -167,7 +167,13 @@ export function HeroScene() {
 
       {/* Road */}
       <div className="absolute bottom-0 left-0 right-0 h-12 border-t border-muted-foreground/40 bg-muted/40">
-        <div className="absolute left-0 right-0 top-1/2 border-t-2 border-dashed border-muted-foreground/30" />
+        <div
+          className="absolute left-0 right-0 top-1/2 h-[2px] -translate-y-1/2 animate-[road-scroll_3s_linear_infinite] opacity-40"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(to right, var(--color-muted-foreground) 0 20px, transparent 20px 48px)',
+          }}
+        />
       </div>
 
       {/* School bus — Crosswalk platform (4 case studies) */}
