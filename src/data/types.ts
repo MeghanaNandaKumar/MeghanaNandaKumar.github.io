@@ -47,10 +47,6 @@ export interface Learning {
   title: string
   theme: string
   body: string
-  /** lucide-react icon component name, e.g. "Compass" */
-  icon?: string
-  /** Tailwind background/text class pair for the icon tile, e.g. "bg-primary/10 text-primary" */
-  accent?: string
 }
 
 export interface EarlyProject {

@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 
 const navLinks = [
   { label: 'Work', to: '/' },
+  { label: 'Learnings', to: '/learnings' },
   { label: 'About', to: '/about' },
 ]
 

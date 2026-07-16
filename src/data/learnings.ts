@@ -5,8 +5,6 @@ export const learnings: Learning[] = [
     title: 'Domain knowledge as a design prerequisite',
     theme: "You can't design what you don't understand",
     body: "I didn't open Figma for my first few weeks at UniteGPS — I didn't know what I was designing for yet. Learning that Iowa law requires bus drivers to activate warning lights 300–500 feet before a stop at 45mph+ directly shaped the driver tablet's auto-scroll threshold. Domain knowledge is the multiplier on design skill — without it you're decorating, with it you're solving the right problem.",
-    icon: 'Compass',
-    accent: 'bg-primary/10 text-primary',
   },
   {
     title: 'What 143 dead clicks taught me about research',
