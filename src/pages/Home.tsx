@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CaseStudyCard } from '@/components/CaseStudyCard'
+import { HeroScene } from '@/components/HeroScene'
 import { Badge } from '@/components/ui/badge'
 import { caseStudies } from '@/data/caseStudies'
 import { additionalWork } from '@/data/additionalWork'
@@ -26,6 +27,11 @@ export function Home() {
         >
           Try the pane-browsing view →
         </Link>
+      </section>
+
+      {/* Interactive hero scene */}
+      <section className="pb-24">
+        <HeroScene />
       </section>
 
       {/* Flagship case studies */}
